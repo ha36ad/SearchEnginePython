@@ -33,5 +33,18 @@ def clear_file (path):
     with open(path, "w") as file:
         pass
 
+#Using a set to increase speed
+def file_sets (file_name):
+    #Intialize an empty set
+    result = set()
+    #Convert each element to a set
+    with open(file_name, "r") as file:
+        for line in file:
+            result.add(line.replace('\n', ''))
+    return result
 
-
+#Function to go from a set to a file
+def sets_file(links, file):
+    clear_file(file)
+    for link in sorted(links):
+        append_file(file, link)
