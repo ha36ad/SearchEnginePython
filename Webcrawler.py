@@ -1,11 +1,9 @@
 import scrapy
 from pathlib import Path
 
-#project path input
+#project name + url
 project_path = input("Enter your path (C:, D:, etc.) : ")
-#Storing user's path
 path = Path(project_path)
-#URL input
 my_url = input("Enter the url you are crawling: ")
 
 # Function for creating a  file
