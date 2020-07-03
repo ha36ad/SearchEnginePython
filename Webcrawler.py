@@ -20,8 +20,18 @@ def create_queue(project_path, url):
     write_file(queue, url)
     write_file(crawl,  " ")    
 
+#Calling the  queue function
 create_queue(path , my_url)   
 
+#Appending files instead of creating new ones
+def append_file (path, data):
+    with open (path,"a") as file:
+        file.write(data + '/n')
+
+#Clearing a file's contents
+def clear_file (path):
+    with open(path, "w") as file:
+        pass
 
 
 
