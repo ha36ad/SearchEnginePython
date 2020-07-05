@@ -61,4 +61,5 @@ def parse(self,response):
     file_name ='spider-%s.html' %page
     with open(file_name,"w") as file:
         file.write(response.body)
+    title = response.css(".set::text").extract_first()
     
