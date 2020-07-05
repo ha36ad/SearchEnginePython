@@ -48,3 +48,17 @@ def sets_file(links, file):
     clear_file(file)
     for link in sorted(links):
         append_file(file, link)
+        
+#Spider
+class Spider(scrapy.Spider):
+    #Name of Spider
+    name = "Spider"
+    start_urls = [
+        'http://quotes.toscrape.com/page/2/']
+#Parsing
+def parse(self,response):
+    page =response.url.split('/')[-1]
+    file_name ='spider-%s.html' %page
+    with open(file_name,"w") as file:
+        file.write(response.body)
+    
