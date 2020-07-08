@@ -11,8 +11,8 @@ d_search = DuckSearch()
 
 #Search prompt
 search_query = input("Enter your search query here: ") 
-search_set = (search_query, 1)
-search_set2 =(search_query, 2)
+search_set = (search_query, 2)
+searc_set2 = (search_query, 3)
 
 #Searching for query
 g_results = g_search.search(*search_set)
@@ -20,8 +20,8 @@ b_results = b_search.search(*search_set2)
 d_results = d_search.search(*search_set2)
 y_results = y_search.search(*search_set)
 
-# print first title from google search
-for i in range(0,5):
+# print first 10 links from each search engine
+for i in range(0,10):
     if g_results["links"] == y_results["links"]:
         print(b_results["links"][i])
         print(d_results ["links"][i])
@@ -29,6 +29,6 @@ for i in range(0,5):
     else:
         print(g_results["links"][i])
         print(y_results ["links"][i])
-        
-    if i == 5:
-        break
+    print(d_results["links"][i])
+    print(b_results["links"][i])    
+  
