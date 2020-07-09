@@ -2,6 +2,7 @@ from search_engine_parser.core.engines.yahoo import Search as YahooSearch
 from search_engine_parser.core.engines.google import Search as GoogleSearch
 from search_engine_parser.core.engines.bing import Search as BingSearch
 from search_engine_parser.core.engines.duckduckgo import Search as DuckSearch
+import csv
 
 #Intializing Search Engines
 g_search = GoogleSearch()
@@ -12,7 +13,7 @@ d_search = DuckSearch()
 #Search prompt
 search_query = input("Enter your search query here: ") 
 search_set = (search_query, 2)
-searc_set2 = (search_query, 3)
+search_set2 = (search_query, 3)
 
 #Searching for query
 g_results = g_search.search(*search_set)
@@ -45,4 +46,6 @@ with open ('data.csv','r', newline= '') as file2, open('edited_data.csv','w', ne
         for line in reader:
             if line[i] == line[i+1]:
                 writer2.writerow([line[2]])
-    
+            else:
+                writer2.writerow(line)
+
