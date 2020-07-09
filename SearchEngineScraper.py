@@ -21,27 +21,28 @@ d_results = d_search.search(*search_set2)
 y_results = y_search.search(*search_set)
 
 #Create csv file
-with open('mycsv.csv','w', newline = '') as file:
+with open('data.csv','w',newline='') as file:
     #Creating writer
     writer = csv.writer(file)
     #Writing each row's header
     writer.writerow(['Bing','DuckDuckGo','Google','Yahoo'])
-    
-# print first 10 links from each search engine
-for i in range(0,11):
-    if g_results["links"] == y_results["links"] and g_results["links"] == d_results["links"] and g_results["links"] == b_results["links"] :
-        print(b_results["links"][i+2])
-        print(d_results ["links"][i+1])
-        print(y_results ["links"][i+3])
-        
-    else:
+    #Print first 20 links for each search engine (can comment)
+    for i in range(0,21):
         print(b_results["links"][i])
         print(d_results["links"][i])
         print(y_results ["links"][i])
-
-    print(g_results["links"][i])
-      #Writing each row
-    writer.writerow([b_results["links"][i], d_results["links"][i], g_results["links"][i], y_results ["links"][i] ])
-    if i==11:
-        file.close()
-  
+        print(g_results["links"][i])
+       #Writing each row
+        writer.writerow([b_results["links"][i], d_results["links"][i], g_results["links"][i], y_results ["links"][i] ])
+        
+#Modifying csv to not have repeating links
+with open ('data.csv','r', newline= '') as file2, open('edited_data.csv','w', newline='') as edited_file:
+    reader = csv.reader(file2)
+    writer2 = csv.writer(edited_file)
+    next(reader)
+    writer2.writerow(['Organized Links'])
+    for i in range(0,21):
+        for line in reader:
+            if line[i] == line[i+1]:
+                writer2.writerow([line[2]])
+    
