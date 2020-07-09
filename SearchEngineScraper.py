@@ -12,8 +12,8 @@ d_search = DuckSearch()
 
 #Search prompt
 search_query = input("Enter your search query here: ") 
-search_set = (search_query, 2)
-search_set2 = (search_query, 3)
+search_set = (search_query, 1)
+search_set2 = (search_query, 2)
 
 #Searching for query
 g_results = g_search.search(*search_set)
