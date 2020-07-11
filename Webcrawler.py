@@ -57,9 +57,10 @@ class Spider(scrapy.Spider):
         'http://quotes.toscrape.com/page/2/']
 #Parsing
 def parse(self,response):
+      pass
     page =response.url.split('/')[-1]
     file_name ='spider-%s.html' %page
     with open(file_name,"w") as file:
         file.write(response.body)
     title = response.css(".set::text").extract_first()
-    
+ 
